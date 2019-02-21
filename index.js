@@ -8,15 +8,16 @@ const client = new Client({ disableEveryone: true });
 
 const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8";
 
-const PREFIX = '1';
+const PREFIX = '2';
 
 
 const youtube = new YouTube(GOOGLE_API_KEY);
 
 const queue = new Map();
+
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix + 'Mido King || 1help ');
+    client.user.setGame(prefix + 'Mido King || 2help ');
 });
 
 
@@ -30,6 +31,8 @@ client.on('ready', () => console.log('Yo this ready!'));
 // client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
 
 // client.on('reconnecting', () => console.log('I am reconnecting now!'));
+
+
 
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
@@ -223,7 +226,7 @@ client.on('message', message => {
   if (!message.content.startsWith(PREFIX)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
-  if (message.author.id !== "547948850443190274") return;
+  if (message.author.id !== "547966095114633216") return;
 
 if (message.content.startsWith(PREFIX + 'setstream')) {
   client.user.setGame(argresult, "https://www.twitch.tv/darkknite55");
@@ -242,7 +245,7 @@ if (message.content.startsWith(PREFIX + 'setavatar')) {
 }
 });
 
-var prefix = '1';
+var prefix = '2';
 
 client.on('message', msg => {
 	if (msg.content.startsWith(prefix + 'help')) {
@@ -265,7 +268,7 @@ client.on('message', message => {
       if (!message.content.startsWith(prefix)) return;
       var args = message.content.split(' ').slice(1);
       var argresult = args.join(' ');
-      if (message.author.id == 547948850443190274) return;
+      if (message.author.id == 461565092329160714) return;
 
 
     if (message.content.startsWith(prefix + 'playing')) {
@@ -297,6 +300,7 @@ client.on('message', message => {
 
 
      });
+
 
 
 client.login(process.env.BOT_TOKEN);
