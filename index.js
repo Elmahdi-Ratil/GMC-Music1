@@ -8,7 +8,7 @@ const client = new Client({ disableEveryone: true });
 
 const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8";
 
-const PREFIX = '3';
+const PREFIX = '1';
 
 
 const youtube = new YouTube(GOOGLE_API_KEY);
@@ -16,7 +16,7 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix + 'Mido King || 3help ');
+    client.user.setGame(prefix + 'GMC™  || 1help ');
 });
 
 
