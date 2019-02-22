@@ -8,7 +8,7 @@ const client = new Client({ disableEveryone: true });
 
 const GOOGLE_API_KEY = "AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8";
 
-const PREFIX = '1';
+const PREFIX = '3';
 
 
 const youtube = new YouTube(GOOGLE_API_KEY);
@@ -16,7 +16,7 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix + 'GMC™ || 1help ');
+    client.user.setGame(prefix + 'Mido King || 3help ');
 });
 
 
@@ -219,7 +219,30 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`بدء تشغيل: **${song.title}**`);
 }
 
+client.on('message', message => {
+  if (!message.content.startsWith(PREFIX)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (message.author.id !== "381084760426020865") return;
 
+if (message.content.startsWith(PREFIX + 'setstream')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/darkknite55");
+	 console.log('test' + argresult);
+    message.channel.sendMessage(`Streaming: **${argresult}`)
+}
+
+if (message.content.startsWith(PREFIX + 'setname')) {
+  client.user.setUsername(argresult).then
+	  message.channel.sendMessage(`Username Changed To **${argresult}**`)
+  return message.reply("You Can change the username 2 times per hour");
+}
+if (message.content.startsWith(PREFIX + 'setavatar')) {
+  client.user.setAvatar(argresult);
+   message.channel.sendMessage(`Avatar Changed Successfully To **${argresult}**`);
+}
+});
+
+var prefix = '3';
 
 client.on('message', msg => {
 	if (msg.content.startsWith(prefix + 'help')) {
@@ -235,6 +258,45 @@ msg.author.send("Commands ستاتي " + `  **
  }
 });
 
+
+client.on('message', message => {
+    var prefix = "+";
+
+      if (!message.content.startsWith(prefix)) return;
+      var args = message.content.split(' ').slice(1);
+      var argresult = args.join(' ');
+      if (message.author.id == 461566066104205312) return;
+
+
+    if (message.content.startsWith(prefix + 'playing')) {
+    if (message.author.id !== '378293431593598986') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    client.user.setGame(argresult);
+        message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
+    } else
+
+
+    if (message.content.startsWith(prefix + 'streem')) {
+    if (message.author.id !== '378293431593598986') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    client.user.setGame(argresult, "http://twitch.tv/HP");
+        message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
+    } else
+
+    if (message.content.startsWith(prefix + 'setname')) {
+    if (message.author.id !== '378293431593598986') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+      client.user.setUsername(argresult).then
+          message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
+      return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
+    } else
+
+    if (message.content.startsWith(prefix + 'setavatar')) {
+    if (message.author.id !== '378293431593598986') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    client.user.setAvatar(argresult);
+        message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+    }
+
+
+
+     });
 
 
 client.login(process.env.BOT_TOKEN);
